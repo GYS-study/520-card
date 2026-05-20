@@ -2,492 +2,231 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<title>520特别福利领取中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>520整蛊页面</title>
 <style>
-:root {
-  --primary: #ff4b87;
-  --primary-glow: rgba(255, 75, 135, 0.3);
-  --bg-gradient: linear-gradient(135deg, #ffeef5 0%, #ffdde9 100%);
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.4);
+:root{
+  --pink:#ff3f7f;
+  --pink2:#ff6ea9;
+  --hot:#ff1f68;
+  --purple:#8e44ff;
+  --dark:#301222;
+  --soft:#fff5fa;
+  --card:rgba(255,255,255,.86);
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(255,105,170,.45), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(142,68,255,.26), transparent 26%),
+    radial-gradient(circle at 50% 92%, rgba(255,213,229,.9), transparent 34%),
+    linear-gradient(180deg,#fff1f7 0%,#ffd7e8 52%,#fff7fb 100%);
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  overflow-x:hidden;
+  color:var(--dark);
 }
-
-body {
-  background: var(--bg-gradient);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
-  position: relative;
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.28) 1px, transparent 1px);
+  background-size:28px 28px;
+  pointer-events:none;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 72%);
 }
-
-/* ===== 动态炫彩背景球 ===== */
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffc7dd 0%, #ffafcc 100%);
-  filter: blur(10px);
-  z-index: 0;
-  animation: float 6s ease-in-out infinite alternate;
+.container{
+  width:100%;max-width:500px;margin:auto;min-height:100vh;padding:22px;position:relative;overflow:hidden;
 }
-.c1 { width: 120px; height: 120px; top: 10%; left: -40px; animation-delay: 0s; }
-.c2 { width: 180px; height: 180px; top: 20%; right: -60px; animation-delay: 1s; }
-.c3 { width: 140px; height: 140px; bottom: 15%; left: -20px; animation-delay: 2s; }
-.c4 { width: 100px; height: 100px; bottom: 5%; right: -30px; animation-delay: 1.5s; }
-
-@keyframes float {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-20px) scale(1.05); }
+.circle,.heart{
+  position:absolute;z-index:0;pointer-events:none;
 }
-
-/* ===== H5 容器 ===== */
-.container {
-  width: 100%;
-  max-width: 414px; /* 标准大屏手机宽度 */
-  padding: 24px;
-  position: relative;
-  z-index: 2;
+.circle{border-radius:50%;background:linear-gradient(135deg,#ffc7dd,#ff8fbd);opacity:.58;filter:blur(.2px);animation:float 6s ease-in-out infinite;}
+.c1{width:86px;height:86px;top:48px;left:18px}.c2{width:130px;height:130px;top:86px;right:-20px;animation-delay:.8s}.c3{width:90px;height:90px;bottom:150px;left:16px;animation-delay:1.4s}.c4{width:70px;height:70px;bottom:290px;right:16px;animation-delay:2s}
+.heart{font-size:20px;opacity:.55;animation:rise 7s linear infinite;}
+.h1{left:12%;bottom:16%;animation-delay:.2s}.h2{left:78%;bottom:24%;animation-delay:1.8s}.h3{left:52%;bottom:10%;animation-delay:3s}.h4{left:28%;bottom:34%;animation-delay:4s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.06)}}
+@keyframes rise{0%{transform:translateY(30px) rotate(0);opacity:0}18%{opacity:.65}100%{transform:translateY(-420px) rotate(28deg);opacity:0}}
+.main{position:relative;z-index:2;text-align:center;padding-top:8px;}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:999px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(255,63,127,.25);
+  box-shadow:0 8px 24px rgba(255,63,127,.12);
+  color:#d91f62;font-size:14px;font-weight:700;backdrop-filter:blur(12px);
 }
-
-/* ===== 玻璃拟态卡片主体 ===== */
-.main-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 32px;
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(255, 75, 135, 0.15), 
-              inset 0 1px 1px rgba(255, 255, 255, 0.3);
-  transform: translateY(0);
-  transition: transform 0.3s ease;
+.hero-img{width:245px;margin:22px auto 18px;position:relative;}
+.hero-img::before{
+  content:"";position:absolute;inset:-12px;border-radius:30px;
+  background:conic-gradient(from 180deg,var(--pink),#fff,var(--purple),var(--pink));
+  filter:blur(16px);opacity:.45;animation:spin 4s linear infinite;
 }
-
-/* ===== 魔性头像区 ===== */
-.hero-wrapper {
-  position: relative;
-  width: 130px;
-  height: 130px;
-  margin: 0 auto 24px;
+.hero-img img{
+  position:relative;width:100%;border-radius:28px;border:6px solid rgba(255,255,255,.9);
+  box-shadow:0 18px 46px rgba(255,63,127,.28),0 8px 18px rgba(0,0,0,.12);
+  animation:shake 2.2s infinite;
 }
-.hero-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  overflow: hidden;
-  animation: jiggle 2s infinite ease-in-out;
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{0%,100%{transform:rotate(0) scale(1)}20%{transform:rotate(1.8deg)}40%{transform:rotate(-1.8deg) scale(1.015)}60%{transform:rotate(1.4deg)}80%{transform:rotate(-1.4deg)}}
+.title{
+  font-size:52px;line-height:1;font-weight:1000;letter-spacing:-2px;
+  color:transparent;background:linear-gradient(135deg,#ff1f68,#ff77ad,#8e44ff);-webkit-background-clip:text;background-clip:text;
+  text-shadow:0 14px 30px rgba(255,63,127,.18);
 }
-.hero-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.subtitle{margin-top:10px;color:#8d4966;font-size:15px;font-weight:700;}
+.sub-box{
+  margin-top:24px;background:var(--card);border:1px solid rgba(255,63,127,.28);border-radius:30px;padding:24px 22px;
+  font-size:23px;line-height:1.55;font-weight:900;
+  box-shadow:0 18px 42px rgba(255,63,127,.14),inset 0 0 0 1px rgba(255,255,255,.7);
+  backdrop-filter:blur(16px);position:relative;overflow:hidden;
 }
-
-@keyframes jiggle {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  20% { transform: scale(1.05) rotate(4deg); }
-  40% { transform: scale(0.95) rotate(-4deg); }
-  60% { transform: scale(1.02) rotate(2deg); }
-  80% { transform: scale(0.98) rotate(-2deg); }
+.sub-box::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-120%);animation:shine 4.5s infinite;}
+@keyframes shine{40%,100%{transform:translateX(120%)}}
+.tip{margin-top:24px;color:var(--hot);font-size:20px;font-weight:1000;animation:pulse 1.4s ease-in-out infinite;}
+@keyframes pulse{50%{transform:scale(1.035)}}
+.input-wrap{
+  display:flex;gap:10px;margin-top:18px;padding:8px;background:rgba(255,255,255,.55);border:1px solid rgba(255,63,127,.22);border-radius:24px;box-shadow:0 14px 30px rgba(255,63,127,.12);backdrop-filter:blur(14px);
 }
-
-/* ===== 标题与文案 ===== */
-.title {
-  font-size: 28px;
-  color: #2c3e50;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-.sub-title {
-  font-size: 15px;
-  color: #7f8c8d;
-  margin-bottom: 24px;
-}
-.sub-box {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  padding: 16px;
-  font-size: 18px;
-  color: var(--primary);
-  font-weight: 600;
-  border: 1px dashed rgba(255, 75, 135, 0.4);
-  margin-bottom: 24px;
-}
-
-/* ===== 输入与交互区 ===== */
-.interactive-zone {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 24px;
-  padding: 20px 16px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.02);
-}
-.tip-text {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-.input-group {
-  display: flex;
-  background: #f7f9fa;
-  border: 2px solid transparent;
-  border-radius: 16px;
-  padding: 4px;
-  transition: all 0.3s ease;
-}
-.input-group:focus-within {
-  border-color: var(--primary);
-  background: #fff;
-  box-shadow: 0 0 0 4px var(--primary-glow);
-}
-.input-group input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 0 16px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  outline: none;
-  width: 100%;
-}
-.btn-submit {
-  background: linear-gradient(135deg, #ff4b87 0%, #ff6ea9 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px var(--primary-glow);
-  white-space: nowrap;
-}
-.btn-submit:active {
-  transform: scale(0.95);
-  opacity: 0.9;
-}
-
-/* ===== 动态解密结果区 ===== */
-.result-card {
-  margin-top: 20px;
-  background: #fff;
-  border-radius: 24px;
-  padding: 24px;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-  display: none;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-}
-.result-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 4px; height: 100%;
-  background: var(--primary);
-}
-.result-title {
-  font-size: 14px;
-  color: #95a5a6;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-.result-content {
-  font-size: 18px;
-  color: #2c3e50;
-  font-weight: 600;
-  line-height: 1.6;
-  min-height: 50px;
-}
-/* 打字机光标效果 */
-.typing::after {
-  content: '|';
-  animation: blink 0.7s infinite;
-  color: var(--primary);
-  margin-left: 2px;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ===== 粒子特效画布 ===== */
-#particle-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* ===== 页脚 ===== */
-.footer {
-  margin-top: 24px;
-  font-size: 12px;
-  color: #a4b0be;
-}
+.input-wrap input{flex:1;height:56px;border-radius:18px;border:0;padding:0 16px;font-size:19px;font-weight:800;outline:none;background:#fff;color:#3b1427;box-shadow:inset 0 0 0 2px rgba(255,124,167,.16);transition:.2s;}
+.input-wrap input:focus{box-shadow:inset 0 0 0 2px var(--pink),0 0 0 5px rgba(255,63,127,.12);}
+.btn{width:120px;border:0;border-radius:18px;background:linear-gradient(135deg,#ff1f68,#ff76ad 55%,#8e44ff);color:#fff;font-size:21px;font-weight:1000;cursor:pointer;box-shadow:0 10px 22px rgba(255,63,127,.32);transition:.18s;position:relative;overflow:hidden;}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-120%);}
+.btn:hover{transform:translateY(-2px)}.btn:hover::after{animation:btnshine .7s}.btn:active{transform:scale(.94)}
+@keyframes btnshine{to{transform:translateX(120%)}}
+.result{margin-top:24px;background:rgba(255,255,255,.9);border-radius:28px;padding:26px 22px;min-height:130px;display:none;font-size:23px;line-height:1.75;font-weight:900;box-shadow:0 20px 48px rgba(255,63,127,.18),0 8px 18px rgba(0,0,0,.06);border:1px solid rgba(255,63,127,.22);animation:show .35s cubic-bezier(.2,1.35,.4,1);position:relative;overflow:hidden;}
+.result.loading{display:block;color:#d91f62;}
+.result.bad{animation:show .35s cubic-bezier(.2,1.35,.4,1), wrong .35s ease;}
+.result::before{content:"整蛊结果";display:inline-block;margin-bottom:12px;padding:5px 10px;border-radius:999px;background:#fff0f6;color:#ff1f68;font-size:13px;line-height:1;font-weight:1000;}
+@keyframes show{from{transform:translateY(18px) scale(.88);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes wrong{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.progress{height:10px;background:#ffe0ed;border-radius:999px;overflow:hidden;margin:12px auto 4px;max-width:270px;}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff1f68,#8e44ff);border-radius:inherit;animation:load 1.05s ease forwards;}
+@keyframes load{to{width:100%}}
+.footer{margin-top:34px;color:#9a6a7d;font-size:13px;text-align:center;padding-bottom:28px;}
+.toast{position:fixed;left:50%;top:18px;z-index:9;transform:translate(-50%,-120%);background:#2c1020;color:#fff;padding:12px 16px;border-radius:999px;font-size:14px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.2);transition:.28s;white-space:nowrap;}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;top:-12px;width:8px;height:14px;border-radius:3px;z-index:8;animation:fall 1.4s linear forwards;}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.1}}
+@media(max-width:390px){.container{padding:18px}.title{font-size:45px}.hero-img{width:220px}.sub-box{font-size:21px}.tip{font-size:18px}.input-wrap{flex-direction:column}.btn{width:100%;height:54px}.result{font-size:21px}}
 </style>
 </head>
 <body>
-
-<!-- 粒子特效层 -->
-<canvas id="particle-canvas"></canvas>
-
+<div class="toast" id="toast">暗号都能输错，你是真的稳。</div>
 <div class="container">
-  <!-- 背景装饰 -->
-  <div class="circle c1"></div>
-  <div class="circle c2"></div>
-  <div class="circle c3"></div>
-  <div class="circle c4"></div>
-
-  <!-- 主卡片 -->
-  <div class="main-card" id="mainCard">
-    <div class="hero-wrapper">
-      <div class="hero-img">
-        <!-- 默认保留你的图片路径，这里加了占位保护 -->
-        <img src="haha.png" onerror="this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=60'">
-      </div>
+  <div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div><div class="circle c4"></div>
+  <div class="heart h1">💘</div><div class="heart h2">💔</div><div class="heart h3">😈</div><div class="heart h4">🐶</div>
+  <div class="main">
+    <div class="badge">😈 520 单身暴击检测系统</div>
+    <div class="hero-img"><img src="haha.png" alt="整蛊图片"></div>
+    <div class="title">520快乐？</div>
+    <div class="subtitle">别急，系统会认真羞辱每一位输入者</div>
+    <div class="sub-box">瞅啥呢，单身狗，520有人陪你吗？没有就把暗号输进去，看看系统怎么判你。</div>
+    <div class="tip">❤️ 输入 520，领取你今天的一日对象 ❤️</div>
+    <div class="input-wrap">
+      <input type="text" id="code" placeholder="请输入520" maxlength="10" autocomplete="off" />
+      <button class="btn" id="btn" onclick="startPrank()">领取</button>
     </div>
-
-    <div class="title">520 浪漫限定</div>
-    <div class="sub-title">智能匹配 · 告别单身</div>
-
-    <div class="sub-box">
-      🔍 正在扫描周围的单身磁场...
-    </div>
-
-    <!-- 交互区域 -->
-    <div class="interactive-zone">
-      <div class="tip-text">
-        <span>💝</span> 输入暗号「520」领取今日分配对象
-      </div>
-      <div class="input-group">
-        <input type="text" id="code" placeholder="请在此输入暗号..." autocomplete="off">
-        <button class="btn-submit" onclick="handleVerify()">立即抽取</button>
-      </div>
-    </div>
-
-    <!-- 结果卡片 -->
-    <div class="result-card" id="resultBox">
-      <div class="result-title" id="resTitle">恋爱服务器响应成功</div>
-      <div class="result-content" id="resContent"></div>
-    </div>
-
-    <div class="footer">
-      🔒 个人隐私已加密保护 | 纯属整蛊 😈
-    </div>
+    <div class="result" id="resultBox"></div>
+    <div class="footer">友情提示：本页面仅供娱乐整蛊，嘴毒但不负责售后 😈</div>
   </div>
 </div>
-
 <script>
-// 丰富了文案池，去掉了部分可能产生负面体验的词汇，强化了幽默感
-const pranks = [
-  "🎉 恭喜抽中特等奖：<br>《空气》24小时沉浸式深度陪伴体验卡。多吸两口，都是自由的味道。",
-  "💘 正在全力匹配中...<br>匹配失败！原因：检测到您优秀的智商压制了桃花运，建议继续搞钱。",
-  "🐶 匹配成功！今日专属CP：<br>您亲爱的「WiFi路由器」。它对你永不掉线，前提是记得交网费。",
-  "📢 系统检测到您当前的孤寡指数过高，已自动为您开通「一个人撑伞」成就勋章。",
-  "🤣 领取成功！<br>今日限定对象：外卖小哥。他不仅知道你的地址，还关心你今天有没有按时吃饭。",
-  "💔 对不起，系统在附近 50km 内反复深度扫描，暂未发现能够配得上您独特气质的灵魂。",
-  "🎁 恭喜获得「神秘完美对象」一位！<br>系统加载中... [错误代码：404] 您的桃花余额不足，请及时充值智商。",
-  "🐸 您今日的专属情感导师：<br>「孤寡青蛙」。它将在接下来的时间里为您在线演奏《孤寡狂想曲》。",
-  "💡 温馨提示：<br>520 其实不是什么特殊的日子，它只是在提醒你：再过大半年，你又要长大一岁了。",
-  "🎮 恭喜成功绑定今日最佳队友：<br>「王者荣耀」倔强青铜人机。绝不挂机，打字必回，除了菜没有缺点。",
-  "📦 收到 520 限定豪华盲盒：<br>打开后获得高级技能——「单身贵族的凝视」爆发力提升 200%。",
-  "📞 您的专属神秘人正在呼叫...<br>接通后对方表示：“您好，天猫双十一预售了解一下？”",
-  "🪞 情感专家系统给出的最终建议：<br>今天多照照镜子。看看镜子里那个优秀又自由的人，还要什么自行车？",
-  "🧠 AI 深度逻辑分析结果：<br>您不是没人喜欢，您只是在等那个能和您一起在工位上熬夜敲代码的终极伙伴。"
-];
+const input = document.getElementById("code");
+const box = document.getElementById("resultBox");
+const btn = document.getElementById("btn");
+const toast = document.getElementById("toast");
 
-let isTyping = false; // 防抖锁
+input.addEventListener("keydown", e => {
+  if(e.key === "Enter") startPrank();
+});
+input.addEventListener("input", () => {
+  input.value = input.value.replace(/\s/g, "");
+});
 
-// 处理点击与验证
-function handleVerify() {
-  if (isTyping) return; // 如果正在打字，不触发新的
+function showToast(text){
+  toast.textContent = text;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"), 1600);
+}
 
-  const inputVal = document.getElementById("code").value.trim();
-  const card = document.getElementById("mainCard");
-  const box = document.getElementById("resultBox");
-  const resTitle = document.getElementById("resTitle");
-  const resContent = document.getElementById("resContent");
+function confetti(){
+  const colors = ["#ff1f68", "#ff77ad", "#8e44ff", "#ffd166", "#36d399"];
+  for(let i=0;i<28;i++){
+    const p = document.createElement("i");
+    p.className = "confetti";
+    p.style.left = Math.random()*100 + "vw";
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
+    p.style.animationDelay = Math.random()*0.35 + "s";
+    p.style.transform = `rotate(${Math.random()*180}deg)`;
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(), 1800);
+  }
+}
 
-  // 每次点击让整体卡片微微震动，增强操作反馈
-  card.style.transform = "scale(0.98)";
-  setTimeout(() => card.style.transform = "translateY(0) scale(1)", 100);
-
-  box.style.display = "block";
-  resContent.innerHTML = "";
-  resContent.classList.add("typing");
-
-  if (inputVal !== "520") {
-    triggerImpactEffect('#ff4757');
-    resTitle.innerText = "❌ 校验失败";
-    resTitle.style.color = "#ff4757";
-    typeEffect(resContent, "暗号不对！看来恋爱服务器并不想对你开放，老实输入「520」吧！");
+function startPrank(){
+  const val = input.value.trim();
+  if(!val){
+    showToast("连520都懒得输，怪不得爱情轮不到你。");
+    input.focus();
+    return;
+  }
+  if(val !== "520"){
+    box.style.display = "block";
+    box.className = "result bad";
+    box.innerHTML = "❌ 暗号错误。<br><br>系统判定：你不仅没人爱，连输入框都嫌你手笨。";
+    showToast("输错了，月老看了都摇头。");
     return;
   }
 
-  // 成功输入 520
-  triggerImpactEffect('#ff4b87');
-  resTitle.innerText = "💖 恋爱服务器响应成功";
-  resTitle.style.color = "#ff4b87";
-  
-  const randomText = pranks[Math.floor(Math.random() * pranks.length)];
-  typeEffect(resContent, randomText);
+  btn.disabled = true;
+  btn.textContent = "匹配中";
+  box.className = "result loading";
+  box.innerHTML = "正在调用月老废弃数据库...<div class='progress'><span></span></div>请稍等，系统正在确认你到底有多惨。";
+
+  setTimeout(() => {
+    const texts = [
+      "🎉 恭喜你获得：<br><br>《空气》陪伴体验卡一天<br><br>有效期：24小时，过期后继续孤寡。",
+      "💘 系统正在匹配对象...<br><br>匹配失败。原因：你这条件，算法都想辞职。",
+      "🐶 今日对象已上线：<br><br>你家的 WiFi 路由器。<br><br>至少它还会自动连接你。",
+      "📢 检测到你单身指数爆表。<br><br>系统自动赠送纸巾一包，别问用途，懂的都懂。",
+      "🤣 领取成功！<br><br>你的520对象：美团外卖骑手。<br><br>但人家只是来送饭，不是来送爱。",
+      "💔 对不起。<br><br>附近50km暂无眼瞎用户。<br><br>建议扩大到银河系再试试。",
+      "😎 AI恋爱系统检测中...<br><br>系统建议：先别恋爱，先学会照镜子别破防。",
+      "🎁 恭喜获得神秘对象一位！<br><br>加载失败：魅力余额不足，账户已欠费。",
+      "📡 正在搜索对象...<br><br>搜索结果：查无此人。<br><br>建议搜索：如何接受现实。",
+      "🐸 今日专属对象：<br><br>QQ自动回复机器人。<br><br>毕竟真人不一定愿意回你。",
+      "💡 温馨提示：<br><br>520不是属于你的节日，<br>是情侣的狂欢、商家的KPI、你的公开处刑。",
+      "🧸 系统随机赠送对象：<br><br>床上的大熊玩偶。<br><br>别嫌弃，它比你前任稳定。",
+      "📢 警告：<br><br>你已连续单身超过系统承受范围。<br><br>月老已把你的红线改成网线。",
+      "💘 匹配成功！<br><br>对方看了你照片后已退出聊天室，并举报了系统。",
+      "🎮 今日CP已生成：<br><br>王者荣耀人机队友。<br><br>至少它不会嫌你菜，只会演你。",
+      "🐷 检测完成：<br><br>你的恋爱脑含量为0，<br>被嫌弃概率为100%。",
+      "📦 520礼包已到账：<br><br>孤独、寂寞、冷，外加一份自我怀疑。",
+      "😂 系统评价：<br><br>别人过520，<br>你过星期三。<br><br>别问，问就是命。",
+      "📞 你的专属对象正在来电...<br><br>备注名称：10086。<br><br>它都比暧昧对象主动。",
+      "🚫 系统检测：<br><br>你不适合恋爱，<br>适合在旁边鼓掌祝福。",
+      "💋 恭喜获得：<br><br>《舔狗入门课程》永久VIP。<br><br>毕业方向：朋友圈点赞员。",
+      "🪞 系统最终决定：<br><br>你还是继续照镜子吧。<br><br>虽然镜子也挺委屈。",
+      "🐔 今日恋爱建议：<br><br>少做梦，多搬砖。<br><br>爱情没有，工资再没有就真完了。",
+      "🧠 AI分析结果：<br><br>你不是没人喜欢，<br>是喜欢你的人还没出生。",
+      "📢 系统公告：<br><br>由于你过于离谱，<br>月老已连夜离职并拉黑你。",
+      "🎉 恭喜抽中隐藏大奖：<br><br>民政局一日游，单人票。<br><br>门口拍照即可返回。",
+      "💔 你的520对象：<br><br>隔壁桌情侣吃剩的狗粮。<br><br>别挑，热乎的。",
+      "📡 正在连接恋爱服务器...<br><br>连接超时。<br><br>服务器表示：别连了，害怕。",
+      "😈 本系统郑重提醒：<br><br>你不是单身狗，<br>你是单身藏獒，战斗力很强，爱情很凉。",
+      "🕯️ 系统为你点亮蜡烛：<br><br>祝你明年继续一个人，<br>最好别拖累别人。"
+    ];
+    const random = texts[Math.floor(Math.random() * texts.length)];
+    box.className = "result";
+    box.innerHTML = random;
+    btn.disabled = false;
+    btn.textContent = "再领一次";
+    confetti();
+  }, 1150);
 }
-
-// 逐字打印特效（打字机效果）
-function typeEffect(element, text) {
-  isTyping = true;
-  let index = 0;
-  // 处理可能存在的 <br> 标签，让其直接渲染不穿帮
-  const parts = text.split(/(<br>)/g);
-  let currentStr = "";
-  let partIndex = 0;
-
-  function step() {
-    if (partIndex < parts.length) {
-      if (parts[partIndex] === "<br>") {
-        currentStr += "<br>";
-        element.innerHTML = currentStr;
-        partIndex++;
-        setTimeout(step, 50);
-      } else {
-        if (index < parts[partIndex].length) {
-          currentStr += parts[partIndex].charAt(index);
-          element.innerHTML = currentStr;
-          index++;
-          setTimeout(step, 30); // 打字速度
-        } else {
-          index = 0;
-          partIndex++;
-          setTimeout(step, 30);
-        }
-      }
-    } else {
-      element.classList.remove("typing");
-      isTyping = false;
-    }
-  }
-  step();
-}
-
-/* ===== HTML5 Canvas 飘落特效与爆破粒子 ===== */
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
-
-// 基础飘落粒子
-class Flake {
-  constructor() {
-    this.reset();
-  }
-  reset() {
-    this.x = Math.random() * width;
-    this.y = Math.random() * -height;
-    this.r = Math.random() * 4 + 2;
-    this.d = Math.random() * height;
-    this.speed = Math.random() * 1.5 + 0.5;
-    this.color = ['#ffccd5', '#ffb3c1', '#ff8fa3', '#fbc4ab'][Math.floor(Math.random() * 4)];
-    this.opacity = Math.random() * 0.6 + 0.2;
-  }
-  update() {
-    this.y += this.speed;
-    this.x += Math.sin(this.y / 30) * 0.5;
-    if (this.y > height) this.reset();
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.fillStyle = this.color;
-    ctx.globalAlpha = this.opacity;
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-// 爆破粒子（点击按钮时喷射）
-class BurstParticle {
-  constructor(x, y, color) {
-    this.x = x;
-    this.y = y;
-    this.size = Math.random() * 4 + 2;
-    this.speedX = Math.random() * 6 - 3;
-    this.speedY = Math.random() * -6 - 2;
-    this.gravity = 0.2;
-    this.color = color;
-    this.alpha = 1;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.speedY += this.gravity;
-    this.alpha -= 0.02;
-  }
-  draw() {
-    ctx.save();
-    ctx.globalAlpha = this.alpha;
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-  }
-}
-
-const flakes = Array.from({ length: 35 }, () => new Flake());
-let bursts = [];
-
-function triggerImpactEffect(color) {
-  const btn = document.querySelector('.btn-submit');
-  const rect = btn.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const centerY = rect.top + rect.height / 2;
-  
-  for (let i = 0; i < 30; i++) {
-    bursts.push(new BurstParticle(centerX, centerY, color));
-  }
-}
-
-function animate() {
-  ctx.clearRect(0, 0, width, height);
-  
-  flakes.forEach(f => { f.update(); f.draw(); });
-  
-  bursts = bursts.filter(b => b.alpha > 0);
-  bursts.forEach(b => { b.update(); b.draw(); });
-  
-  ctx.globalAlpha = 1.0; // 重置
-  requestAnimationFrame(animate);
-}
-animate();
 </script>
-
 </body>
 </html>
