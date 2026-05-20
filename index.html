@@ -2,463 +2,491 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>520整蛊页面</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>520特别福利领取中心</title>
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root {
+  --primary: #ff4b87;
+  --primary-glow: rgba(255, 75, 135, 0.3);
+  --bg-gradient: linear-gradient(135deg, #ffeef5 0%, #ffdde9 100%);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.4);
 }
 
-body{
-  background:#ffeef5;
-  font-family:
-  "PingFang SC",
-  "Microsoft YaHei",
-  sans-serif;
-
-  overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.container{
-  width:100%;
-  max-width:480px;
-  margin:auto;
-  min-height:100vh;
-
-  padding:20px;
-  position:relative;
+body {
+  background: var(--bg-gradient);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* ===== 背景圆点 ===== */
+/* ===== 动态炫彩背景球 ===== */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffc7dd 0%, #ffafcc 100%);
+  filter: blur(10px);
+  z-index: 0;
+  animation: float 6s ease-in-out infinite alternate;
+}
+.c1 { width: 120px; height: 120px; top: 10%; left: -40px; animation-delay: 0s; }
+.c2 { width: 180px; height: 180px; top: 20%; right: -60px; animation-delay: 1s; }
+.c3 { width: 140px; height: 140px; bottom: 15%; left: -20px; animation-delay: 2s; }
+.c4 { width: 100px; height: 100px; bottom: 5%; right: -30px; animation-delay: 1.5s; }
 
-.circle{
-  position:absolute;
-  border-radius:50%;
-  background:#ffc7dd;
-  opacity:.7;
-  z-index:0;
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-20px) scale(1.05); }
 }
 
-.c1{
-  width:80px;
-  height:80px;
-  top:40px;
-  left:20px;
+/* ===== H5 容器 ===== */
+.container {
+  width: 100%;
+  max-width: 414px; /* 标准大屏手机宽度 */
+  padding: 24px;
+  position: relative;
+  z-index: 2;
 }
 
-.c2{
-  width:120px;
-  height:120px;
-  top:80px;
-  right:10px;
+/* ===== 玻璃拟态卡片主体 ===== */
+.main-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(255, 75, 135, 0.15), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
 }
 
-.c3{
-  width:90px;
-  height:90px;
-  bottom:150px;
-  left:30px;
+/* ===== 魔性头像区 ===== */
+.hero-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 24px;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  overflow: hidden;
+  animation: jiggle 2s infinite ease-in-out;
+}
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.c4{
-  width:70px;
-  height:70px;
-  bottom:260px;
-  right:20px;
+@keyframes jiggle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  20% { transform: scale(1.05) rotate(4deg); }
+  40% { transform: scale(0.95) rotate(-4deg); }
+  60% { transform: scale(1.02) rotate(2deg); }
+  80% { transform: scale(0.98) rotate(-2deg); }
 }
 
-.main{
-  position:relative;
-  z-index:2;
-  text-align:center;
+/* ===== 标题与文案 ===== */
+.title {
+  font-size: 28px;
+  color: #2c3e50;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.sub-title {
+  font-size: 15px;
+  color: #7f8c8d;
+  margin-bottom: 24px;
+}
+.sub-box {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 16px;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 600;
+  border: 1px dashed rgba(255, 75, 135, 0.4);
+  margin-bottom: 24px;
 }
 
-/* ===== 图片 ===== */
-
-.hero-img{
-  width:260px;
-  margin:30px auto 20px;
+/* ===== 输入与交互区 ===== */
+.interactive-zone {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  padding: 20px 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.02);
+}
+.tip-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.input-group {
+  display: flex;
+  background: #f7f9fa;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 4px;
+  transition: all 0.3s ease;
+}
+.input-group:focus-within {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  outline: none;
+  width: 100%;
+}
+.btn-submit {
+  background: linear-gradient(135deg, #ff4b87 0%, #ff6ea9 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px var(--primary-glow);
+  white-space: nowrap;
+}
+.btn-submit:active {
+  transform: scale(0.95);
+  opacity: 0.9;
 }
 
-.hero-img img{
-  width:100%;
-  border-radius:20px;
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.15);
-
-  animation:shake 2s infinite;
+/* ===== 动态解密结果区 ===== */
+.result-card {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+  display: none;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: var(--primary);
+}
+.result-title {
+  font-size: 14px;
+  color: #95a5a6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.result-content {
+  font-size: 18px;
+  color: #2c3e50;
+  font-weight: 600;
+  line-height: 1.6;
+  min-height: 50px;
+}
+/* 打字机光标效果 */
+.typing::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+  color: var(--primary);
+  margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* 魔性抖动 */
-
-@keyframes shake{
-
-  0%{
-    transform:rotate(0deg);
-  }
-
-  20%{
-    transform:rotate(2deg);
-  }
-
-  40%{
-    transform:rotate(-2deg);
-  }
-
-  60%{
-    transform:rotate(2deg);
-  }
-
-  80%{
-    transform:rotate(-2deg);
-  }
-
-  100%{
-    transform:rotate(0deg);
-  }
-
+/* ===== 粒子特效画布 ===== */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* ===== 标题 ===== */
-
-.title{
-  font-size:52px;
-  color:#ff3f7f;
-  font-weight:bold;
-
-  margin-top:10px;
+/* ===== 页脚 ===== */
+.footer {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #a4b0be;
 }
-
-/* ===== 文本框 ===== */
-
-.sub-box{
-
-  margin-top:30px;
-
-  background:#fff;
-
-  border:4px solid #ff5d96;
-
-  border-radius:30px;
-
-  padding:28px;
-
-  font-size:24px;
-
-  line-height:1.6;
-
-  box-shadow:
-  0 10px 20px rgba(0,0,0,.05);
-}
-
-/* ===== 提示 ===== */
-
-.tip{
-  margin-top:30px;
-  color:#ff3f7f;
-  font-size:22px;
-  font-weight:bold;
-}
-
-/* ===== 输入区 ===== */
-
-.input-wrap{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
-}
-
-.input-wrap input{
-
-  flex:1;
-
-  height:60px;
-
-  border-radius:16px;
-
-  border:2px solid #ff7ca7;
-
-  padding:0 20px;
-
-  font-size:20px;
-
-  outline:none;
-}
-
-.btn{
-
-  width:120px;
-
-  border:none;
-
-  border-radius:16px;
-
-  background:
-  linear-gradient(
-  135deg,
-  #ff4b87,
-  #ff6ea9
-  );
-
-  color:#fff;
-
-  font-size:22px;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-  transition:.2s;
-}
-
-.btn:active{
-  transform:scale(.95);
-}
-
-/* ===== 结果区 ===== */
-
-.result{
-
-  margin-top:30px;
-
-  background:#fff;
-
-  border-radius:24px;
-
-  padding:30px;
-
-  min-height:120px;
-
-  display:none;
-
-  font-size:24px;
-
-  line-height:1.8;
-
-  animation:show .3s ease;
-
-  box-shadow:
-  0 10px 20px rgba(0,0,0,.08);
-}
-
-@keyframes show{
-
-  from{
-    transform:scale(.8);
-    opacity:0;
-  }
-
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
-
-}
-
-/* ===== 底部 ===== */
-
-.footer{
-
-  margin-top:40px;
-
-  color:#999;
-
-  font-size:14px;
-
-  text-align:center;
-
-  padding-bottom:30px;
-}
-
 </style>
 </head>
-
 <body>
 
+<!-- 粒子特效层 -->
+<canvas id="particle-canvas"></canvas>
+
 <div class="container">
-
-  <!-- 背景 -->
-
+  <!-- 背景装饰 -->
   <div class="circle c1"></div>
   <div class="circle c2"></div>
   <div class="circle c3"></div>
   <div class="circle c4"></div>
 
-  <div class="main">
-
-    <!-- 图片 -->
-
-    <div class="hero-img">
-
-      <!-- 这里换成你的图片名字 -->
-
-      <img src="haha.png">
-
+  <!-- 主卡片 -->
+  <div class="main-card" id="mainCard">
+    <div class="hero-wrapper">
+      <div class="hero-img">
+        <!-- 默认保留你的图片路径，这里加了占位保护 -->
+        <img src="haha.png" onerror="this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=60'">
+      </div>
     </div>
 
-    <!-- 标题 -->
-
-    <div class="title">
-      520快乐？
-    </div>
-
-    <!-- 恶搞文案 -->
+    <div class="title">520 浪漫限定</div>
+    <div class="sub-title">智能匹配 · 告别单身</div>
 
     <div class="sub-box">
-
-      瞅啥呢，单身狗，520有人陪你吗
-
+      🔍 正在扫描周围的单身磁场...
     </div>
 
-    <!-- 提示 -->
-
-    <div class="tip">
-
-      ❤️ 输入520领取你今天的一日对象 ❤️
-
+    <!-- 交互区域 -->
+    <div class="interactive-zone">
+      <div class="tip-text">
+        <span>💝</span> 输入暗号「520」领取今日分分分配对象
+      </div>
+      <div class="input-group">
+        <input type="text" id="code" placeholder="请在此输入暗号..." autocomplete="off">
+        <button class="btn-submit" onclick="handleVerify()">立即抽取</button>
+      </div>
     </div>
 
-    <!-- 输入 -->
-
-    <div class="input-wrap">
-
-      <input
-      type="text"
-      id="code"
-      placeholder="请输入520"
-      />
-
-      <button
-      class="btn"
-      onclick="startPrank()">
-
-      领取
-
-      </button>
-
+    <!-- 结果卡片 -->
+    <div class="result-card" id="resultBox">
+      <div class="result-title" id="resTitle">恋爱服务器响应成功</div>
+      <div class="result-content" id="resContent"></div>
     </div>
-
-    <!-- 结果 -->
-
-    <div
-    class="result"
-    id="resultBox"></div>
-
-    <!-- 底部 -->
 
     <div class="footer">
-
-      友情提示：
-      本页面仅供娱乐整蛊 😈
-
+      🔒 个人隐私已加密保护 | 纯属整蛊 😈
     </div>
-
   </div>
-
 </div>
 
 <script>
+// 丰富了文案池，去掉了部分可能产生负面体验的词汇，强化了幽默感
+const pranks = [
+  "🎉 恭喜抽中特等奖：<br>《空气》24小时沉浸式深度陪伴体验卡。多吸两口，都是自由的味道。",
+  "💘 正在全力匹配中...<br>匹配失败！原因：检测到您优秀的智商压制了桃花运，建议继续搞钱。",
+  "🐶 匹配成功！今日专属CP：<br>您亲爱的「WiFi路由器」。它对你永不掉线，前提是记得交网费。",
+  "📢 系统检测到您当前的孤寡指数过高，已自动为您开通「一个人撑伞」成就勋章。",
+  "🤣 领取成功！<br>今日限定对象：外卖小哥。他不仅知道你的地址，还关心你今天有没有按时吃饭。",
+  "💔 对不起，系统在附近 50km 内反复深度扫描，暂未发现能够配得上您独特气质的灵魂。",
+  "🎁 恭喜获得「神秘完美对象」一位！<br>系统加载中... [错误代码：404] 您的桃花余额不足，请及时充值智商。",
+  "🐸 您今日的专属情感导师：<br>「孤寡青蛙」。它将在接下来的时间里为您在线演奏《孤寡狂想曲》。",
+  "💡 温馨提示：<br>520 其实不是什么特殊的日子，它只是在提醒你：再过大半年，你又要长大一岁了。",
+  "🎮 恭喜成功绑定今日最佳队友：<br>「王者荣耀」倔强青铜人机。绝不挂机，打字必回，除了菜没有缺点。",
+  "📦 收到 520 限定豪华盲盒：<br>打开后获得高级技能——「单身贵族的凝视」爆发力提升 200%。",
+  "📞 您的专属神秘人正在呼叫...<br>接通后对方表示：“您好，天猫双十一预售了解一下？”",
+  "🪞 情感专家系统给出的最终建议：<br>今天多照照镜子。看看镜子里那个优秀又自由的人，还要什么自行车？",
+  "🧠 AI 深度逻辑分析结果：<br>您不是没人喜欢，您只是在等那个能和您一起在工位上熬夜敲代码的终极伙伴。"
+];
 
-function startPrank(){
+let isTyping = false; // 防抖锁
 
-  let val =
-  document.getElementById("code").value;
+// 处理点击与验证
+function handleVerify() {
+  if (isTyping) return; // 如果正在打字，不触发新的
 
-  let box =
-  document.getElementById("resultBox");
+  const inputVal = document.getElementById("code").value.trim();
+  const card = document.getElementById("mainCard");
+  const box = document.getElementById("resultBox");
+  const resTitle = document.getElementById("resTitle");
+  const resContent = document.getElementById("resContent");
 
-  if(val !== "520"){
+  // 每次点击让整体卡片微微震动，增强操作反馈
+  card.style.transform = "scale(0.98)";
+  setTimeout(() => card.style.transform = "translateY(0) scale(1)", 100);
 
-    box.style.display = "block";
+  box.style.display = "block";
+  resContent.innerHTML = "";
+  resContent.classList.add("typing");
 
-    box.innerHTML =
-    "❌ 暗号错误，你果然没人爱";
-
+  if (inputVal !== "520") {
+    triggerImpactEffect('#ff4757');
+    resTitle.innerText = "❌ 校验失败";
+    resTitle.style.color = "#ff4757";
+    typeEffect(resContent, "暗号不对！看来恋爱服务器并不想对你开放，老实输入「520」吧！");
     return;
   }
 
-  let texts = [
-
-    "🎉 恭喜你获得：<br><br>《空气》陪伴体验卡一天<br><br>有效期：24小时",
-
-    "💘 系统正在匹配对象...<br><br>匹配失败，因为你长得像朋友圈仅三天可见",
-
-    "🐶 今日对象已上线：<br><br>你家的WiFi路由器",
-
-    "📢 检测到你单身指数过高<br><br>系统自动赠送纸巾一包",
-
-    "🤣 领取成功！<br><br>你的520对象：美团外卖骑手",
-
-    "💔 对不起<br><br>附近50km暂无眼瞎用户",
-
-    "😎 AI恋爱系统检测中...<br><br>系统建议你先减肥再恋爱",
-
-    "🎁 恭喜获得神秘女友一位！<br><br>加载失败：余额不足",
-
-    "📡 正在搜索对象...<br><br>搜索结果：查无此人",
-
-    "🐸 你今日的专属对象：<br><br>QQ自动回复机器人",
-
-    "💡 温馨提示：<br><br>520不是属于你的节日<br><br>是商家的KPI",
-
-    "🧸 系统随机赠送对象：<br><br>床上的大熊玩偶",
-
-    "📢 警告：<br><br>你已连续单身超过系统承受范围",
-
-    "💘 匹配成功！<br><br>对方看了你照片后已退出聊天室",
-
-    "🎮 今日CP已生成：<br><br>王者荣耀人机队友",
-
-    "🐷 检测完成：<br><br>你的恋爱脑含量为0",
-
-    "📦 520礼包已到账：<br><br>孤独、寂寞、冷",
-
-    "😂 系统评价：<br><br>别人过520<br><br>你过星期二",
-
-    "📞 你的专属对象正在来电...<br><br>备注名称：10086",
-
-    "🚫 系统检测：<br><br>你不适合恋爱<br><br>适合出家",
-
-    "💋 恭喜获得：<br><br>《舔狗入门课程》永久VIP",
-
-    "🪞 系统最终决定：<br><br>你还是继续照镜子吧",
-
-    "🐔 今日恋爱建议：<br><br>少做梦，多搬砖",
-
-    "🧠 AI分析结果：<br><br>你不是没人喜欢<br><br>是狗都嫌",
-
-    "📢 系统公告：<br><br>由于你过于离谱<br><br>月老已辞职",
-
-    "🎉 恭喜抽中隐藏大奖：<br><br>民政局一日游（单人票）",
-
-    "💔 你的520对象：<br><br>隔壁桌情侣吃剩的狗粮",
-
-    "📡 正在连接恋爱服务器...<br><br>连接超时",
-
-    "😈 本系统郑重提醒：<br><br>你不是单身狗<br><br>你是单身藏獒",
-
-    "🕯️ 系统为你点亮蜡烛：<br><br>祝你明年继续一个人"
-
-  ];
-
-  let random =
-  texts[
-  Math.floor(
-  Math.random() * texts.length
-  )
-  ];
-
-  box.style.display = "block";
-
-  box.innerHTML = random;
+  // 成功输入 520
+  triggerImpactEffect('#ff4b87');
+  resTitle.innerText = "💖 恋爱服务器响应成功";
+  resTitle.style.color = "#ff4b87";
+  
+  const randomText = pranks[Math.floor(Math.random() * pranks.length)];
+  typeEffect(resContent, randomText);
 }
 
+// 逐字打印特效（打字机效果）
+function typeEffect(element, text) {
+  isTyping = true;
+  let index = 0;
+  // 处理可能存在的 <br> 标签，让其直接渲染不穿帮
+  const parts = text.split(/(<br>)/g);
+  let currentStr = "";
+  let partIndex = 0;
+
+  function step() {
+    if (partIndex < parts.length) {
+      if (parts[partIndex] === "<br>") {
+        currentStr += "<br>";
+        element.innerHTML = currentStr;
+        partIndex++;
+        setTimeout(step, 50);
+      } else {
+        if (index < parts[partIndex].length) {
+          currentStr += parts[partIndex].charAt(index);
+          element.innerHTML = currentStr;
+          index++;
+          setTimeout(step, 30); // 打字速度
+        } else {
+          index = 0;
+          partIndex++;
+          setTimeout(step, 30);
+        }
+      }
+    } else {
+      element.classList.remove("typing");
+      isTyping = false;
+    }
+  }
+  step();
+}
+
+/* ===== HTML5 Canvas 飘落特效与爆破粒子 ===== */
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
+
+// 基础飘落粒子
+class Flake {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * -height;
+    this.r = Math.random() * 4 + 2;
+    this.d = Math.random() * height;
+    this.speed = Math.random() * 1.5 + 0.5;
+    this.color = ['#ffccd5', '#ffb3c1', '#ff8fa3', '#fbc4ab'][Math.floor(Math.random() * 4)];
+    this.opacity = Math.random() * 0.6 + 0.2;
+  }
+  update() {
+    this.y += this.speed;
+    this.x += Math.sin(this.y / 30) * 0.5;
+    if (this.y > height) this.reset();
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.fillStyle = this.color;
+    ctx.globalAlpha = this.opacity;
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// 爆破粒子（点击按钮时喷射）
+class BurstParticle {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 4 + 2;
+    this.speedX = Math.random() * 6 - 3;
+    this.speedY = Math.random() * -6 - 2;
+    this.gravity = 0.2;
+    this.color = color;
+    this.alpha = 1;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.speedY += this.gravity;
+    this.alpha -= 0.02;
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+const flakes = Array.from({ length: 35 }, () => new Flake());
+let bursts = [];
+
+function triggerImpactEffect(color) {
+  const btn = document.querySelector('.btn-submit');
+  const rect = btn.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+  
+  for (let i = 0; i < 30; i++) {
+    bursts.push(new BurstParticle(centerX, centerY, color));
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+  
+  flakes.forEach(f => { f.update(); f.draw(); });
+  
+  bursts = bursts.filter(b => b.alpha > 0);
+  bursts.forEach(b => { b.update(); b.draw(); });
+  
+  ctx.globalAlpha = 1.0; // 重置
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
