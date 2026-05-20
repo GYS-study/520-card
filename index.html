@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>520整蛊页面</title>
+<style>
+:root{
+  --pink:#ff3f7f;
+  --pink2:#ff6ea9;
+  --hot:#ff1f68;
+  --purple:#8e44ff;
+  --dark:#301222;
+  --soft:#fff5fa;
+  --card:rgba(255,255,255,.86);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(255,105,170,.45), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(142,68,255,.26), transparent 26%),
+    radial-gradient(circle at 50% 92%, rgba(255,213,229,.9), transparent 34%),
+    linear-gradient(180deg,#fff1f7 0%,#ffd7e8 52%,#fff7fb 100%);
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  overflow-x:hidden;
+  color:var(--dark);
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.28) 1px, transparent 1px);
+  background-size:28px 28px;
+  pointer-events:none;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 72%);
+}
+.container{
+  width:100%;max-width:500px;margin:auto;min-height:100vh;padding:22px;position:relative;overflow:hidden;
+}
+.circle,.heart{
+  position:absolute;z-index:0;pointer-events:none;
+}
+.circle{border-radius:50%;background:linear-gradient(135deg,#ffc7dd,#ff8fbd);opacity:.58;filter:blur(.2px);animation:float 6s ease-in-out infinite;}
+.c1{width:86px;height:86px;top:48px;left:18px}.c2{width:130px;height:130px;top:86px;right:-20px;animation-delay:.8s}.c3{width:90px;height:90px;bottom:150px;left:16px;animation-delay:1.4s}.c4{width:70px;height:70px;bottom:290px;right:16px;animation-delay:2s}
+.heart{font-size:20px;opacity:.55;animation:rise 7s linear infinite;}
+.h1{left:12%;bottom:16%;animation-delay:.2s}.h2{left:78%;bottom:24%;animation-delay:1.8s}.h3{left:52%;bottom:10%;animation-delay:3s}.h4{left:28%;bottom:34%;animation-delay:4s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.06)}}
+@keyframes rise{0%{transform:translateY(30px) rotate(0);opacity:0}18%{opacity:.65}100%{transform:translateY(-420px) rotate(28deg);opacity:0}}
+.main{position:relative;z-index:2;text-align:center;padding-top:8px;}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:999px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(255,63,127,.25);
+  box-shadow:0 8px 24px rgba(255,63,127,.12);
+  color:#d91f62;font-size:14px;font-weight:700;backdrop-filter:blur(12px);
+}
+.hero-img{width:245px;margin:22px auto 18px;position:relative;}
+.hero-img::before{
+  content:"";position:absolute;inset:-12px;border-radius:30px;
+  background:conic-gradient(from 180deg,var(--pink),#fff,var(--purple),var(--pink));
+  filter:blur(16px);opacity:.45;animation:spin 4s linear infinite;
+}
+.hero-img img{
+  position:relative;width:100%;border-radius:28px;border:6px solid rgba(255,255,255,.9);
+  box-shadow:0 18px 46px rgba(255,63,127,.28),0 8px 18px rgba(0,0,0,.12);
+  animation:shake 2.2s infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{0%,100%{transform:rotate(0) scale(1)}20%{transform:rotate(1.8deg)}40%{transform:rotate(-1.8deg) scale(1.015)}60%{transform:rotate(1.4deg)}80%{transform:rotate(-1.4deg)}}
+.title{
+  font-size:52px;line-height:1;font-weight:1000;letter-spacing:-2px;
+  color:transparent;background:linear-gradient(135deg,#ff1f68,#ff77ad,#8e44ff);-webkit-background-clip:text;background-clip:text;
+  text-shadow:0 14px 30px rgba(255,63,127,.18);
+}
+.subtitle{margin-top:10px;color:#8d4966;font-size:15px;font-weight:700;}
+.sub-box{
+  margin-top:24px;background:var(--card);border:1px solid rgba(255,63,127,.28);border-radius:30px;padding:24px 22px;
+  font-size:23px;line-height:1.55;font-weight:900;
+  box-shadow:0 18px 42px rgba(255,63,127,.14),inset 0 0 0 1px rgba(255,255,255,.7);
+  backdrop-filter:blur(16px);position:relative;overflow:hidden;
+}
+.sub-box::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-120%);animation:shine 4.5s infinite;}
+@keyframes shine{40%,100%{transform:translateX(120%)}}
+.tip{margin-top:24px;color:var(--hot);font-size:20px;font-weight:1000;animation:pulse 1.4s ease-in-out infinite;}
+@keyframes pulse{50%{transform:scale(1.035)}}
+.input-wrap{
+  display:flex;gap:10px;margin-top:18px;padding:8px;background:rgba(255,255,255,.55);border:1px solid rgba(255,63,127,.22);border-radius:24px;box-shadow:0 14px 30px rgba(255,63,127,.12);backdrop-filter:blur(14px);
+}
+.input-wrap input{flex:1;height:56px;border-radius:18px;border:0;padding:0 16px;font-size:19px;font-weight:800;outline:none;background:#fff;color:#3b1427;box-shadow:inset 0 0 0 2px rgba(255,124,167,.16);transition:.2s;}
+.input-wrap input:focus{box-shadow:inset 0 0 0 2px var(--pink),0 0 0 5px rgba(255,63,127,.12);}
+.btn{width:120px;border:0;border-radius:18px;background:linear-gradient(135deg,#ff1f68,#ff76ad 55%,#8e44ff);color:#fff;font-size:21px;font-weight:1000;cursor:pointer;box-shadow:0 10px 22px rgba(255,63,127,.32);transition:.18s;position:relative;overflow:hidden;}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-120%);}
+.btn:hover{transform:translateY(-2px)}.btn:hover::after{animation:btnshine .7s}.btn:active{transform:scale(.94)}
+@keyframes btnshine{to{transform:translateX(120%)}}
+.result{margin-top:24px;background:rgba(255,255,255,.9);border-radius:28px;padding:26px 22px;min-height:130px;display:none;font-size:23px;line-height:1.75;font-weight:900;box-shadow:0 20px 48px rgba(255,63,127,.18),0 8px 18px rgba(0,0,0,.06);border:1px solid rgba(255,63,127,.22);animation:show .35s cubic-bezier(.2,1.35,.4,1);position:relative;overflow:hidden;}
+.result.show,.result.loading{display:block;color:var(--dark);}
+.result.loading{color:#d91f62;}
+.result.bad{animation:show .35s cubic-bezier(.2,1.35,.4,1), wrong .35s ease;}
+.result::before{content:"整蛊结果";display:inline-block;margin-bottom:12px;padding:5px 10px;border-radius:999px;background:#fff0f6;color:#ff1f68;font-size:13px;line-height:1;font-weight:1000;}
+@keyframes show{from{transform:translateY(18px) scale(.88);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes wrong{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.progress{height:10px;background:#ffe0ed;border-radius:999px;overflow:hidden;margin:12px auto 4px;max-width:270px;}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff1f68,#8e44ff);border-radius:inherit;animation:load 1.05s ease forwards;}
+@keyframes load{to{width:100%}}
+.footer{margin-top:34px;color:#9a6a7d;font-size:13px;text-align:center;padding-bottom:28px;}
+.toast{position:fixed;left:50%;top:18px;z-index:9;transform:translate(-50%,-120%);background:#2c1020;color:#fff;padding:12px 16px;border-radius:999px;font-size:14px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.2);transition:.28s;white-space:nowrap;}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;top:-12px;width:8px;height:14px;border-radius:3px;z-index:8;animation:fall 1.4s linear forwards;}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.1}}
+@media(max-width:390px){.container{padding:18px}.title{font-size:45px}.hero-img{width:220px}.sub-box{font-size:21px}.tip{font-size:18px}.input-wrap{flex-direction:column}.btn{width:100%;height:54px}.result{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="toast" id="toast">暗号都能输错，你是真的稳。</div>
+<div class="container">
+  <div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div><div class="circle c4"></div>
+  <div class="heart h1">💘</div><div class="heart h2">💔</div><div class="heart h3">😈</div><div class="heart h4">🐶</div>
+  <div class="main">
+    <div class="badge">😈 520 单身暴击检测系统</div>
+    <div class="hero-img"><img src="haha.png" alt="整蛊图片"></div>
+    <div class="title">520快乐？</div>
+    <div class="subtitle">别急，系统会认真羞辱每一位输入者</div>
+    <div class="sub-box">瞅啥呢，单身狗，520有人陪你吗？没有就把暗号输进去，看看系统怎么判你。</div>
+    <div class="tip">❤️ 输入 520，领取你今天的一日对象 ❤️</div>
+    <div class="input-wrap">
+      <input type="text" id="code" placeholder="请输入520" maxlength="10" autocomplete="off" />
+      <button class="btn" id="btn" onclick="startPrank()">领取</button>
+    </div>
+    <div class="result" id="resultBox"></div>
+    <div class="footer">友情提示：本页面仅供娱乐整蛊，嘴毒但不负责售后 😈</div>
+  </div>
+</div>
+<script>
+const input = document.getElementById("code");
+const box = document.getElementById("resultBox");
+const btn = document.getElementById("btn");
+const toast = document.getElementById("toast");
+
+input.addEventListener("keydown", e => {
+  if(e.key === "Enter") startPrank();
+});
+input.addEventListener("input", () => {
+  input.value = input.value.replace(/\s/g, "");
+});
+
+function showToast(text){
+  toast.textContent = text;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"), 1600);
+}
+
+function confetti(){
+  const colors = ["#ff1f68", "#ff77ad", "#8e44ff", "#ffd166", "#36d399"];
+  for(let i=0;i<28;i++){
+    const p = document.createElement("i");
+    p.className = "confetti";
+    p.style.left = Math.random()*100 + "vw";
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
+    p.style.animationDelay = Math.random()*0.35 + "s";
+    p.style.transform = `rotate(${Math.random()*180}deg)`;
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(), 1800);
+  }
+}
+
+function showFinalResult(html){
+  box.className = "result visible";
+  box.style.display = "block";
+  box.style.visibility = "visible";
+  box.style.opacity = "1";
+  box.innerHTML = html;
+  btn.disabled = false;
+  btn.textContent = "再领一次";
+  setTimeout(() => {
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 80);
+}
+
+function startPrank(){
+  const val = input.value.trim();
+  if(!val){
+    showToast("连520都懒得输，怪不得爱情轮不到你。");
+    input.focus();
+    return;
+  }
+  if(val !== "520"){
+    box.style.display = "block";
+    box.className = "result bad";
+    box.innerHTML = "❌ 暗号错误。<br><br>系统判定：你不仅没人爱，连输入框都嫌你手笨。";
+    setTimeout(() => box.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
+    showToast("输错了，月老看了都摇头。");
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "匹配中";
+  box.className = "result loading";
+  box.innerHTML = "正在调用月老废弃数据库...<div class='progress'><span></span></div>请稍等，系统正在确认你到底有多惨。";
+  box.style.display = "block";
+  setTimeout(() => box.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
+
+  setTimeout(() => {
+    const texts = [
+      "🎉 恭喜你获得：<br><br>《空气》陪伴体验卡一天<br><br>有效期：24小时，过期后继续孤寡。",
+      "💘 系统正在匹配对象...<br><br>匹配失败。原因：你这条件，算法都想辞职。",
+      "🐶 今日对象已上线：<br><br>你家的 WiFi 路由器。<br><br>至少它还会自动连接你。",
+      "📢 检测到你单身指数爆表。<br><br>系统自动赠送纸巾一包，别问用途，懂的都懂。",
+      "🤣 领取成功！<br><br>你的520对象：美团外卖骑手。<br><br>但人家只是来送饭，不是来送爱。",
+      "💔 对不起。<br><br>附近50km暂无眼瞎用户。<br><br>建议扩大到银河系再试试。",
+      "😎 AI恋爱系统检测中...<br><br>系统建议：先别恋爱，先学会照镜子别破防。",
+      "🎁 恭喜获得神秘对象一位！<br><br>加载失败：魅力余额不足，账户已欠费。",
+      "📡 正在搜索对象...<br><br>搜索结果：查无此人。<br><br>建议搜索：如何接受现实。",
+      "🐸 今日专属对象：<br><br>QQ自动回复机器人。<br><br>毕竟真人不一定愿意回你。",
+      "💡 温馨提示：<br><br>520不是属于你的节日，<br>是情侣的狂欢、商家的KPI、你的公开处刑。",
+      "🧸 系统随机赠送对象：<br><br>床上的大熊玩偶。<br><br>别嫌弃，它比你前任稳定。",
+      "📢 警告：<br><br>你已连续单身超过系统承受范围。<br><br>月老已把你的红线改成网线。",
+      "💘 匹配成功！<br><br>对方看了你照片后已退出聊天室，并举报了系统。",
+      "🎮 今日CP已生成：<br><br>王者荣耀人机队友。<br><br>至少它不会嫌你菜，只会演你。",
+      "🐷 检测完成：<br><br>你的恋爱脑含量为0，<br>被嫌弃概率为100%。",
+      "📦 520礼包已到账：<br><br>孤独、寂寞、冷，外加一份自我怀疑。",
+      "😂 系统评价：<br><br>别人过520，<br>你过星期三。<br><br>别问，问就是命。",
+      "📞 你的专属对象正在来电...<br><br>备注名称：10086。<br><br>它都比暧昧对象主动。",
+      "🚫 系统检测：<br><br>你不适合恋爱，<br>适合在旁边鼓掌祝福。",
+      "💋 恭喜获得：<br><br>《舔狗入门课程》永久VIP。<br><br>毕业方向：朋友圈点赞员。",
+      "🪞 系统最终决定：<br><br>你还是继续照镜子吧。<br><br>虽然镜子也挺委屈。",
+      "🐔 今日恋爱建议：<br><br>少做梦，多搬砖。<br><br>爱情没有，工资再没有就真完了。",
+      "🧠 AI分析结果：<br><br>你不是没人喜欢，<br>是喜欢你的人还没出生。",
+      "📢 系统公告：<br><br>由于你过于离谱，<br>月老已连夜离职并拉黑你。",
+      "🎉 恭喜抽中隐藏大奖：<br><br>民政局一日游，单人票。<br><br>门口拍照即可返回。",
+      "💔 你的520对象：<br><br>隔壁桌情侣吃剩的狗粮。<br><br>别挑，热乎的。",
+      "📡 正在连接恋爱服务器...<br><br>连接超时。<br><br>服务器表示：别连了，害怕。",
+      "😈 本系统郑重提醒：<br><br>你不是单身狗，<br>你是单身藏獒，战斗力很强，爱情很凉。",
+      "🕯️ 系统为你点亮蜡烛：<br><br>祝你明年继续一个人，<br>最好别拖累别人。"
+    ];
+    const random = texts[Math.floor(Math.random() * texts.length)];
+    showFinalResult(random);
+    confetti();
+  }, 1150);
+}
+</script>
+</body>
+</html>
