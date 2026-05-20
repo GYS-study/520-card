@@ -97,7 +97,8 @@ body::before{
 .btn:hover{transform:translateY(-2px)}.btn:hover::after{animation:btnshine .7s}.btn:active{transform:scale(.94)}
 @keyframes btnshine{to{transform:translateX(120%)}}
 .result{margin-top:24px;background:rgba(255,255,255,.9);border-radius:28px;padding:26px 22px;min-height:130px;display:none;font-size:23px;line-height:1.75;font-weight:900;box-shadow:0 20px 48px rgba(255,63,127,.18),0 8px 18px rgba(0,0,0,.06);border:1px solid rgba(255,63,127,.22);animation:show .35s cubic-bezier(.2,1.35,.4,1);position:relative;overflow:hidden;}
-.result.loading{display:block;color:#d91f62;}
+.result.show,.result.loading{display:block;color:var(--dark);}
+.result.loading{color:#d91f62;}
 .result.bad{animation:show .35s cubic-bezier(.2,1.35,.4,1), wrong .35s ease;}
 .result::before{content:"整蛊结果";display:inline-block;margin-bottom:12px;padding:5px 10px;border-radius:999px;background:#fff0f6;color:#ff1f68;font-size:13px;line-height:1;font-weight:1000;}
 @keyframes show{from{transform:translateY(18px) scale(.88);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
@@ -177,6 +178,7 @@ function startPrank(){
     box.style.display = "block";
     box.className = "result bad";
     box.innerHTML = "❌ 暗号错误。<br><br>系统判定：你不仅没人爱，连输入框都嫌你手笨。";
+    setTimeout(() => box.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
     showToast("输错了，月老看了都摇头。");
     return;
   }
@@ -220,8 +222,10 @@ function startPrank(){
       "🕯️ 系统为你点亮蜡烛：<br><br>祝你明年继续一个人，<br>最好别拖累别人。"
     ];
     const random = texts[Math.floor(Math.random() * texts.length)];
-    box.className = "result";
+    box.className = "result show";
+    box.style.display = "block";
     box.innerHTML = random;
+    setTimeout(() => box.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
     btn.disabled = false;
     btn.textContent = "再领一次";
     confetti();
